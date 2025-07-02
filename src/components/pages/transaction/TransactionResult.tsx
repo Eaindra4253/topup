@@ -51,12 +51,12 @@ export function TransactionResult() {
     <Paper shadow="lg" radius="lg" p="xl">
       <Stack>
         <Box
-          bg={isSuccess ? "#EEF9FB" : "red.1"}
+          bg={isSuccess ? "#EEF9FB" : "#FFDBDB"}
           p="sm"
           mb="md"
           style={{ border: `1px solid ${isSuccess ? "#1DAD4A" : "#e74c3c"}` }}
         >
-          <Text fw={600} ta="center" c={isSuccess ? "#1DAD4A" : "red.7"}>
+          <Text fw={600} ta="center" c={isSuccess ? "#1DAD4A" : "#FF0000"}>
             {isSuccess ? "Transaction Successful" : "Transaction Failed"}
           </Text>
         </Box>
@@ -65,7 +65,7 @@ export function TransactionResult() {
           <ThemeIcon
             radius="xl"
             size="lg"
-            color={isSuccess ? "green" : "red"}
+            color={isSuccess ? "green" : "#FF0000"}
             variant={isSuccess ? "filled" : "outline"}
           >
             {isSuccess ? <IconCheck size={24} /> : <IconX size={24} />}
@@ -81,32 +81,57 @@ export function TransactionResult() {
             mx="auto"
           >
             <Stack gap="lg" align="start">
-              <TransactionRow label="Top Up Number" value={topUpNumber} />
-              <TransactionRow label="Operator" value={operator} />
-              <TransactionRow label="Package" value={pkg} />
-              <TransactionRow label="Amount" value={amount} />
+              <TransactionRow
+                label="Top Up Number"
+                value={topUpNumber}
+                valueColor="#000000"
+                labelColor="#9A9898"
+              />
+              <TransactionRow
+                label="Operator"
+                value={operator}
+                valueColor="#000000"
+                labelColor="#9A9898"
+              />
+              <TransactionRow
+                label="Package"
+                value={pkg}
+                valueColor="#000000"
+                labelColor="#9A9898"
+              />
+              <TransactionRow
+                label="Amount"
+                value={amount}
+                valueColor="#000000"
+                labelColor="#9A9898"
+              />
               <TransactionRow
                 label="Fees & Charges"
                 value={fees}
                 valueColor={fees === "Free" ? "#1DAD4A" : undefined}
+                labelColor="#9A9898"
               />
               <TransactionRow
                 label="Total"
                 value={total}
-                valueColor={isSuccess ? "#0074BC": "red"}
+                valueColor={isSuccess ? "#0074BC" : "#FF0000"}
+                labelColor="#9A9898"
                 bold
               />
-              <Divider size="md" color="red" />
-              <TransactionRow 
+              <Divider my="sm" size="sm" color="gray.4" w="100%" />
+
+              <TransactionRow
                 label="Transaction ID"
                 value={transactionId}
                 valueColor="#0074BC"
+                labelColor="#9A9898"
                 isLink
               />
               <TransactionRow
                 label="Date and Time"
                 value={date}
                 isLink
+                labelColor="#9A9898"
                 valueColor="#0074BC"
               />
             </Stack>
@@ -127,18 +152,20 @@ function TransactionRow({
   label,
   value,
   valueColor,
+  labelColor,
   bold,
   isLink = false,
 }: {
   label: string;
   value: string;
   valueColor?: string;
+  labelColor?: string;
   bold?: boolean;
   isLink?: boolean;
 }) {
   return (
     <Group justify="space-between" w="100%" wrap="nowrap">
-      <Text c="gray.7" size="sm">
+      <Text c={labelColor ?? "gray.7"} size="sm">
         {label}
       </Text>
       <Text

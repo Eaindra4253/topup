@@ -49,7 +49,7 @@ export function OTPModal({ opened, close }: OTPModalProps) {
       return;
     }
 
-    setOtpError(""); 
+    setOtpError("");
     close();
     navigate("/transaction-result", {
       state: {
@@ -105,7 +105,7 @@ export function OTPModal({ opened, close }: OTPModalProps) {
             size="md"
             onChange={(e) => {
               setOtp(e.currentTarget.value);
-              setOtpError(""); 
+              setOtpError("");
             }}
             labelProps={{ style: { marginBottom: "6px" } }}
             error={otpError}
@@ -119,9 +119,24 @@ export function OTPModal({ opened, close }: OTPModalProps) {
           </Text>
 
           <Group justify="end">
-            <Button size="md" onClick={handleVerify} bg="primary.9">
-              Verify
-            </Button>
+            {counter === 0 ? (
+              <Button
+                size="md"
+                variant="outline"
+                color="blue"
+                onClick={() => {
+                  setCounter(59);
+                  setOtp("");
+                  setOtpError("");
+                }}
+              >
+                Resend OTP
+              </Button>
+            ) : (
+              <Button size="md" onClick={handleVerify} bg="primary.9">
+                Verify
+              </Button>
+            )}
           </Group>
         </Stack>
       </Paper>

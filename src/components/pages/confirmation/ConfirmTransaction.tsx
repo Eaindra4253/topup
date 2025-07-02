@@ -1,4 +1,4 @@
-import { Paper, Text, Group, Button, Stack, Box, Divider } from "@mantine/core";
+import { Paper, Text, Group, Button, Stack, Box, Divider, Center } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useLocation, useNavigate } from "react-router-dom";
 import { OTPModal } from "../../modal/OtpModal";
@@ -41,7 +41,7 @@ export default function ConfirmationTransaction() {
     { label: "Fees & Charges", value: transactionData.fees, color: "green" },
   ];
 
-  return (
+return (
     <>
       <Paper radius="lg" shadow="lg" pt={24} mt={0}>
         <Box bg="primary.0" p="xs" m="xs">
@@ -49,45 +49,58 @@ export default function ConfirmationTransaction() {
             Confirm transaction details
           </Text>
         </Box>
-
-        <Stack gap="md" p={{ base: "md", sm: "xl" }}>
-          {transactionItems.map((item, idx) => (
-            <Group key={idx} justify="space-between">
-              <Text c="dimmed" size="sm">
-                {item.label}
-              </Text>
-              <Text fw={500} c={item.color}>
-                {item.value}
-              </Text>
-            </Group>
-          ))}
-
-          <Divider />
-
-          <Group justify="space-between">
-            <Text fw={600}>Total</Text>
-            <Text c="#1565c0" fw={700} size="lg">
-              {transactionData.total}
-            </Text>
-          </Group>
-
-          <Group justify="end" gap="md" mt={{ base: 40, sm: 80 }} wrap="wrap">
-            <Button
-              variant="light"
-              size="md"
-              px="xl"
-              onClick={() => navigate(-1)}
-              c="primary.9"
-            >
-              Back
-            </Button>
-            <Button size="md" px="xl" onClick={open} bg="primary.9">
-              Next
-            </Button>
-          </Group>
-        </Stack>
+ 
+        <Center>
+          <Paper p="xl" w="100%" maw={500} mx="auto" bg="#FBFCFD" shadow="none">
+            <Stack gap="md" p={{ base: "md", sm: "xl" }}>
+              {transactionItems.map((item, idx) => (
+                <Group key={idx} justify="space-between">
+                  <Text c="dimmed" size="sm">
+                    {item.label}
+                  </Text>
+                  <Text fw={500} c={item.color}>
+                    {item.value}
+                  </Text>
+                </Group>
+              ))}
+ 
+              <Divider />
+ 
+              <Group justify="space-between">
+                <Text fw={600}>Total</Text>
+                <Text c="#1565c0" fw={700} size="lg">
+                  {transactionData.total}
+                </Text>
+              </Group>
+            </Stack>
+          </Paper>
+        </Center>
+ 
+        <Group
+          justify="end"
+          gap="md"
+          p={20}
+          mt={{ base: 40, sm: 80 }}
+          wrap="wrap"
+        >
+          <Button
+            variant="light"
+            size="md"
+            px="xl"
+            onClick={() => navigate(-1)}
+            c="primary.9"
+          >
+            Back
+          </Button>
+          <Button size="md" px="xl" onClick={open} bg="primary.9">
+            Next
+          </Button>
+        </Group>
       </Paper>
       <OTPModal opened={opened} close={close} />
     </>
   );
 }
+ 
+ 
+
