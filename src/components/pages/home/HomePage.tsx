@@ -99,7 +99,7 @@ export const HomePage = () => {
             </Box>
           ) : (
             <>
-              <Paper radius="md" bg="primary.0" p="xl" withBorder h={200}>
+              <Paper radius="md" bg="primary.0" p="xl" withBorder h={400}>
                 <Center h="100%">
                   <Text fw={500} c="primary.9" size="lg">
                     {selectedOperator
@@ -109,7 +109,7 @@ export const HomePage = () => {
                 </Center>
               </Paper>
 
-              <Group justify="flex-end" mt="md">
+              <Group justify="flex-end" mt="lg">
                 <Button
                   variant="filled"
                   size="md"

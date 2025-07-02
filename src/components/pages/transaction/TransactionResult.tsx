@@ -51,12 +51,12 @@ export function TransactionResult() {
     <Paper shadow="lg" radius="lg" p="xl">
       <Stack>
         <Box
-          bg={isSuccess ? "green.1" : "red.1"}
+          bg={isSuccess ? "#EEF9FB" : "red.1"}
           p="sm"
           mb="md"
-          style={{ border: `1px solid ${isSuccess ? "#2ecc71" : "#e74c3c"}` }}
+          style={{ border: `1px solid ${isSuccess ? "#1DAD4A" : "#e74c3c"}` }}
         >
-          <Text fw={600} ta="center" c={isSuccess ? "green.7" : "red.7"}>
+          <Text fw={600} ta="center" c={isSuccess ? "#1DAD4A" : "red.7"}>
             {isSuccess ? "Transaction Successful" : "Transaction Failed"}
           </Text>
         </Box>
@@ -75,13 +75,10 @@ export function TransactionResult() {
           <Paper
             shadow="xs"
             p="xl"
-            bg={isSuccess ? "green.1" : "red.1"} 
+            bg={isSuccess ? "#F0F6F9" : "#FFE7E7"}
             w="100%"
             maw={500}
             mx="auto"
-            style={{
-              border: `1px solid ${isSuccess ? "#2ecc71" : "#e74c3c"}`,
-            }}
           >
             <Stack gap="lg" align="start">
               <TransactionRow label="Top Up Number" value={topUpNumber} />
@@ -91,21 +88,27 @@ export function TransactionResult() {
               <TransactionRow
                 label="Fees & Charges"
                 value={fees}
-                valueColor={fees === "Free" ? "green" : undefined}
+                valueColor={fees === "Free" ? "#1DAD4A" : undefined}
               />
               <TransactionRow
                 label="Total"
                 value={total}
-                valueColor={isSuccess ? "green" : "red"} // ✅ dynamic color
+                valueColor={isSuccess ? "#0074BC": "red"}
                 bold
               />
-              <Divider size="md" color="primary.9" />
-              <TransactionRow
+              <Divider size="md" color="red" />
+              <TransactionRow 
                 label="Transaction ID"
                 value={transactionId}
+                valueColor="#0074BC"
                 isLink
               />
-              <TransactionRow label="Date and Time" value={date} isLink />
+              <TransactionRow
+                label="Date and Time"
+                value={date}
+                isLink
+                valueColor="#0074BC"
+              />
             </Stack>
           </Paper>
         </Center>
