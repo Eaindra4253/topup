@@ -21,19 +21,19 @@ export const AmountCards = ({
   const theme = useMantineTheme();
 
   return (
-    <Paper withBorder p="xl" radius="md" bg="primary.0">
-      <Title order={5} mb="xs">
+    <Paper withBorder p="xl" radius="sm" bg="#F0F6F9">
+      <Title order={4} mb="xs">
         Amount
       </Title>
-      <Divider mb="md" color="primary.9" size="sm" />
+      <Divider mb="50" color="primary.9" size="md" />
       <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="xl">
         {amounts.map((amount, index) => (
           <Paper
             key={index}
             withBorder
-            radius="md"
+            radius="sm"
             h={40}
-            p="sm"
+            p="lg"
             bg="primary.1"
             onClick={() => onSelect(index)}
             style={{
@@ -47,7 +47,7 @@ export const AmountCards = ({
               cursor: "pointer",
             }}
           >
-            <Text c="primary.9" size="xs" ta="center">
+            <Text c="primary.9" size="md" ta="center" fw={600}>
               {amount}
             </Text>
           </Paper>
@@ -56,3 +56,4 @@ export const AmountCards = ({
     </Paper>
   );
 };
+

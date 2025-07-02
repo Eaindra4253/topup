@@ -11,7 +11,7 @@ export const MobileNumberInput = ({ value, onChange, showError }: Props) => {
 
   return (
     <Box style={{ width: "100%", maxWidth: 460, minWidth: 200 }}>
-      <Title order={5} mb="md">Mobile Number</Title>
+      <Title order={5} mb="md" c="black">Mobile Number</Title>
       <TextInput
         placeholder="Enter Mobile Number"
         value={value}

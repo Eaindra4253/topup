@@ -19,12 +19,12 @@
 }
 
 .tab {
-  padding: 2px;
-  border-radius: 8px;
+  padding: 1px;
+  border-radius: 6px;
   border: 1px solid #ccc;
   transition: 0.2s ease;
-  min-width: 70px;
-  height: 60px;
+  min-width: 80px;
+  height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,8 +32,7 @@
 }
 
 .selected {
-  background-color: #edf4ff;
-  border: 2px solid #228be6;
+  border: 2px solid #0074bc;
 }
 
 .tabLabel {

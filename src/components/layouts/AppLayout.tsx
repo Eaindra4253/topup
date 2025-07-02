@@ -42,12 +42,12 @@ export const AppLayout = () => {
 
         <Box
           pos="absolute"
-          top={50} 
+          top={50}
           left="50%"
           px={{ base: "1rem", sm: "2rem", md: "4rem" }}
           style={{
             transform: "translateX(-50%)",
-            zIndex: 100, 
+            zIndex: 100,
             width: "92%",
             overflow: "visible",
           }}

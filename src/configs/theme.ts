@@ -1,7 +1,7 @@
 import type { MantineThemeOverride } from "@mantine/core";
 
 export const themeConfig: MantineThemeOverride = {
-  fontFamily: "Trebuchet MS",
+  fontFamily: "Segoe UI, sans-serif",
   primaryColor: "primary",
   focusRing: "never",
   colors: {

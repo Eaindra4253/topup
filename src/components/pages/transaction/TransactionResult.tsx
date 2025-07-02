@@ -45,7 +45,7 @@ export function TransactionResult() {
     date = "N/A",
   } = transactionData;
 
-  const isSuccess = status === "success";
+  const isSuccess = status === "fail";
 
   return (
     <Paper shadow="lg" radius="lg" p="xl">

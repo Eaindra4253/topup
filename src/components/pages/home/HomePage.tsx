@@ -39,7 +39,6 @@ export const HomePage = () => {
           height: "100%",
         }}
       >
-        {/* Scrollable content */}
         <Stack gap="md" style={{ flex: 1, overflowY: "auto", paddingRight: "0.5rem" }}>
           <MobileNumberInput
             value={mobile}

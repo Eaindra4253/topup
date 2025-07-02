@@ -31,67 +31,74 @@ export const DataPackCards = ({
   const theme = useMantineTheme();
 
   return (
-    <Paper withBorder p="xl" radius="md" bg="primary.0">
-      <Title order={5} mb="xs">
+    <Paper withBorder p="xl" radius="md" bg="#F0F6F9">
+      <Title order={4} mb="xs">
         Data Packs
       </Title>
-      <Divider mb="md" color="primary.9" size="sm" />
+      <Divider mb="md" color="primary.9" size="md" />
 
-   <Stack
-  gap="md"
-  style={{
-    maxHeight: "40vh", // Responsive height
-    overflowY: "auto",
-    overflowX: "hidden",
-  }}
->
-  {dataPacks.length === 0 ? (
-    <Text c="dimmed" ta="center">
-      No Data Packs Available
-    </Text>
-  ) : (
-    dataPacks.map((pack, idx) => (
-      <Paper
-        key={idx}
-        withBorder
-        p="md"
-        bg="primary.1"
-        onClick={() => onSelect(idx)}
+      <Stack
+        gap="md"
         style={{
-          backgroundColor: selectedIndex === idx ? "#d0ebff" : "#e7f5ff",
-          borderColor:
-            selectedIndex === idx
-              ? theme.colors.primary[5]
-              : "#d0d7de",
-          borderRadius: 6,
-          cursor: "pointer",
+          maxHeight: "40vh",
+          overflowY: "auto",
+          overflowX: "hidden",
         }}
       >
-        <Group justify="space-between" wrap="wrap" gap="sm">
-          <Group align="center" gap="sm" style={{ flex: 1, minWidth: 0 }}>
-            <Radio
-              checked={selectedIndex === idx}
-              onChange={() => onSelect(idx)}
-              value={String(idx)}
-              tabIndex={-1}
-            />
-            <Box>
-              <Text fw={600}>{pack.name}</Text>
-              <Text size="xs" c="dimmed">
-                {pack.size} - {pack.duration}
-              </Text>
-            </Box>
-          </Group>
-          <Text fw={700} c="blue" ml="auto">
-            {pack.price}
+        {dataPacks.length === 0 ? (
+          <Text c="dimmed" ta="center" mt="xl">
+            No Data Packs Available
           </Text>
-        </Group>
-      </Paper>
-    ))
-  )}
-</Stack>
-
+        ) : (
+          dataPacks.map((pack, idx) => (
+            <Paper
+              key={idx}
+              withBorder
+              p="md"
+              bg="primary.1"
+              onClick={() => onSelect(idx)}
+              style={{
+                backgroundColor: selectedIndex === idx ? "#d0ebff" : "#e7f5ff",
+                border:
+                  selectedIndex === idx
+                    ? `2px solid ${theme.colors.primary[9]}`
+                    : undefined,
+                borderRadius: 6,
+                cursor: "pointer",
+              }}
+            >
+              <Group justify="space-between" wrap="wrap" gap="sm">
+                <Group align="center" gap="sm" style={{ flex: 1, minWidth: 0 }}>
+                  <Radio
+                    checked={selectedIndex === idx}
+                    onChange={() => onSelect(idx)}
+                    value={String(idx)}
+                    tabIndex={-1}
+                    styles={
+                      selectedIndex === idx
+                        ? {
+                            radio: {
+                              backgroundColor: theme.colors.primary[9],
+                            },
+                          }
+                        : undefined
+                    }
+                  />
+                  <Box>
+                    <Title order={4}>{pack.name}</Title>
+                    <Title c="#A3A3A3" ml="auto" order={5}>
+                      {pack.size} - {pack.duration}
+                    </Title>
+                  </Box>
+                </Group>
+                <Title c="primary.9" order={4}>
+                  {pack.price}
+                </Title>
+              </Group>
+            </Paper>
+          ))
+        )}
+      </Stack>
     </Paper>
   );
 };
-
